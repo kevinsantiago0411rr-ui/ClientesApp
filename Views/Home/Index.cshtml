@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Página Principal";
+}
+
+<!-- Contenedor principal con diseño en tonos celeste y azul -->
+<div class="container my-5">
+    <div class="p-5 mb-4 rounded-4 shadow-sm text-center" style="background: linear-gradient(135deg, #e0f2fe, #bae6fd); border: 1px solid #7dd3fc;">
+        
+        <!-- Tu imagen personalizada centrada cargada desde wwwroot -->
+        <div class="mb-4">
+            <img src="~/mi-logo.jpeg" 
+                 alt="Logo Uniandes" 
+                 class="img-fluid rounded-4 shadow" 
+                 style="max-height: 220px; object-fit: cover;" />
+        </div>
+
+        <!-- Título principal en español -->
+        <h1 class="display-5 fw-bold text-primary mb-4">Bienvenido a ClientesApp</h1>
+
+        <!-- Botones de acción rápida en español -->
+        <div class="d-flex justify-content-center gap-3 mt-4">
+            <a class="btn btn-primary btn-lg shadow-sm px-4" asp-controller="Clientes" asp-action="Index">
+                Ver Lista de Clientes
+            </a>
+            <a class="btn btn-outline-primary btn-lg px-4" asp-controller="Clientes" asp-action="Create">
+                Registrar Nuevo Cliente
+            </a>
+        </div>
+    </div>
+</div>

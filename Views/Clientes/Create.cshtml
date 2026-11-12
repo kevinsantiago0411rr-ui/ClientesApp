@@ -1,0 +1,99 @@
+@model ClientesApp.Models.Cliente
+
+@{
+    // Configuración del título de la página web para la vista de creación
+    ViewData["Title"] = "Crear Cliente";
+}
+
+<div class="container mt-4">
+    <h2>Registrar Nuevo Cliente</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Formulario principal conectado a la acción Create del controlador -->
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                
+                <!-- Campo de Nombre -->
+                <div class="form-group mb-3">
+                    <label asp-for="Nombre" class="control-label"></label>
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+                
+                <!-- Campo de Apellido -->
+                <div class="form-group mb-3">
+                    <label asp-for="Apellido" class="control-label"></label>
+                    <input asp-for="Apellido" class="form-control" />
+                    <span asp-validation-for="Apellido" class="text-danger"></span>
+                </div>
+
+                <!-- Campo de Correo Electrónico (Email) -->
+                <div class="form-group mb-3">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <!-- Campo de Teléfono -->
+                <div class="form-group mb-3">
+                    <label asp-for="Telefono" class="control-label"></label>
+                    <input asp-for="Telefono" class="form-control" />
+                    <span asp-validation-for="Telefono" class="text-danger"></span>
+                </div>
+
+                <!-- Campo de Dirección -->
+                <div class="form-group mb-3">
+                    <label asp-for="Direccion" class="control-label"></label>
+                    <input asp-for="Direccion" class="form-control" />
+                    <span asp-validation-for="Direccion" class="text-danger"></span>
+                </div>
+
+                <!-- Campo de Ciudad -->
+                <div class="form-group mb-3">
+                    <label asp-for="Ciudad" class="control-label"></label>
+                    <input asp-for="Ciudad" class="form-control" />
+                    <span asp-validation-for="Ciudad" class="text-danger"></span>
+                </div>
+
+                <!-- Campo de País -->
+                <div class="form-group mb-3">
+                    <label asp-for="Pais" class="control-label"></label>
+                    <input asp-for="Pais" class="form-control" />
+                    <span asp-validation-for="Pais" class="text-danger"></span>
+                </div>
+
+                <!-- Campo de Fecha de Nacimiento -->
+                <div class="form-group mb-3">
+                    <label asp-for="FechaNacimiento" class="control-label"></label>
+                    <input asp-for="FechaNacimiento" class="form-control" type="date" />
+                    <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+                </div>
+
+                <!-- Nuevo campo: Nombre de Mascota -->
+                <div class="form-group mb-3">
+                    <label asp-for="NombreMascota" class="control-label">Nombre de Mascota</label>
+                    <input asp-for="NombreMascota" class="form-control" />
+                    <span asp-validation-for="NombreMascota" class="text-danger"></span>
+                </div>
+
+                <!-- Nuevo campo: Género (Seleccionable entre Masculino y Femenino) -->
+                <div class="form-group mb-3">
+                    <label asp-for="Genero" class="control-label">Género</label>
+                    <select asp-for="Genero" class="form-control">
+                        <option value="">-- Seleccione Género --</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                    </select>
+                    <span asp-validation-for="Genero" class="text-danger"></span>
+                </div>
+
+                <!-- Botones de envío y navegación -->
+                <div class="form-group">
+                    <input type="submit" value="Crear" class="btn btn-success" />
+                    <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

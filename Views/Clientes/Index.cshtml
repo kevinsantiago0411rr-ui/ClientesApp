@@ -1,0 +1,92 @@
+@model IEnumerable<ClientesApp.Models.Cliente>
+
+@{
+    // Configuración del título de la página web
+    ViewData["Title"] = "Lista de Clientes";
+}
+
+<!-- Contenedor principal con estética en tonos celeste y azul -->
+<div class="container mt-4">
+    
+    <!-- Encabezado con degradado celeste/azul y tu imagen centrada -->
+    <div class="p-4 mb-4 rounded-3 shadow-sm text-center" style="background: linear-gradient(135deg, #e0f2fe, #bae6fd); border: 1px solid #7dd3fc;">
+        <h1 class="display-6 fw-bold text-primary">Lista de Clientes</h1>
+        
+        <!-- Tu imagen personalizada centrada cargada desde wwwroot -->
+        <div class="my-3">
+            <img src="~/mi-logo.jpeg" 
+                 alt="Logo Uniandes" 
+                 class="img-fluid rounded shadow" 
+                 style="max-height: 200px; object-fit: cover;" />
+        </div>
+
+        <!-- Botón principal para registrar -->
+        <div class="mt-3">
+            <a asp-action="Create" class="btn btn-primary btn-lg shadow-sm px-4">Crear Nuevo Cliente</a>
+        </div>
+    </div>
+
+    <!-- Tarjeta contenedora para la tabla de datos -->
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+            <table class="table table-hover align-middle">
+                <thead class="table-primary">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nombre)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Apellido)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Telefono)
+                        </th>
+                        <th>
+                            Mascota
+                        </th>
+                        <th>
+                            Género
+                        </th>
+                        <th class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model) {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Apellido)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Telefono)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NombreMascota)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Genero)
+                            </td>
+                            <td class="text-center">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary me-1">Editar</a>
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary me-1">Detalles</a>
+                                
+                                <!-- Formulario POST sincronizado con asp-action="Delete" -->
+                                <form asp-action="Delete" asp-route-id="@item.Id" method="post" class="d-inline" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este cliente?');">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
